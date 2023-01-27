@@ -5,7 +5,6 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 import { InputError, AccessError, } from './error';
-import { BACKEND_PORT } from '../../frontend/src/config';
 import swaggerDocument from '../swagger.json';
 import {
   save,
@@ -232,7 +231,7 @@ app.get('/', (req, res) => res.redirect('/docs'));
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const port = BACKEND_PORT || 5000;
+const port = process.env.PORT || 5000;
 
 const server = app.listen(port, () => {
   console.log(`Backend is now listening on port ${port}!`);
