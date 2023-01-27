@@ -231,7 +231,7 @@ app.get('/', (req, res) => res.redirect('/docs'));
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 const server = app.listen(port, () => {
   console.log(`Backend is now listening on port ${port}!`);
